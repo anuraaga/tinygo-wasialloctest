@@ -34,7 +34,7 @@ func TestMalloc(t *testing.T) {
 		tt := tc
 		t.Run(tt.name, func(t *testing.T) {
 			ctx := context.Background()
-			r := wazero.NewRuntimeWithConfig(ctx, wazero.NewRuntimeConfig().WithWasmCore2())
+			r := wazero.NewRuntime(ctx)
 			defer r.Close(ctx)
 
 			_, err := wasi_snapshot_preview1.Instantiate(ctx, r)
